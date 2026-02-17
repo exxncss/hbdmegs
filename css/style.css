@@ -1,0 +1,130 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Inter', sans-serif;
+  background:#fdfaf7;
+  color:#3e3e3e;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* Progress */
+.progress-bar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0%;
+  background:#b76e79;
+  z-index:9999;
+  transition:width 0.2s ease;
+}
+
+/* Parallax subtle background */
+body::before{
+  content:"";
+  position:fixed;
+  top:-200px;
+  left:-200px;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#f3dcdc 0%,transparent 70%);
+  z-index:-1;
+  transform:translateY(var(--scrollY,0));
+}
+
+/* Landing */
+.landing-body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+}
+
+.landing-container h1{
+  font-family:'Playfair Display', serif;
+  font-size:52px;
+  margin-bottom:20px;
+}
+
+.subtitle{ margin-bottom:40px; font-weight:300; }
+
+.btn{
+  padding:12px 30px;
+  border:1px solid #c18484;
+  border-radius:30px;
+  text-decoration:none;
+  color:#c18484;
+  transition:0.4s;
+}
+
+.btn:hover{
+  background:#c18484;
+  color:white;
+  transform:translateY(-3px);
+}
+
+/* Page */
+.page-container{
+  max-width:900px;
+  margin:80px auto;
+  padding:0 20px;
+  animation:fadeUp 1s ease forwards;
+}
+
+.center{ text-align:center; }
+
+.top-nav{ margin-bottom:40px; }
+
+.top-nav a{
+  text-decoration:none;
+  color:#b76e79;
+  font-size:14px;
+}
+
+h2{
+  font-family:'Playfair Display', serif;
+  font-size:36px;
+  margin-bottom:25px;
+}
+
+p{ margin-bottom:25px; }
+
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  margin-top:30px;
+}
+
+.gallery img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:12px;
+  transition:0.4s;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Typewriter */
+.typewriter{
+  overflow:hidden;
+  border-right:2px solid #b76e79;
+  white-space:nowrap;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  50%{border-color:transparent;}
+}
