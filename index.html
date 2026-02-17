@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Our Little Story</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Three Years of Us</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
+
 <body class="landing-body">
 
-  <div class="progress-bar"></div>
+<div class="progress-bar"></div>
 
-  <div class="landing-container">
-    <h1>
-  Three Years of Us <span id="love-emoji"></span>
-</h1>
-    <p class="subtitle">a small space for our big story</p>
-    <a href="story1.html" class="btn">Start Reading</a>
-  </div>
+<div class="landing-container">
+  <h1>
+    Three Years of Us <span id="love-emoji"></span>
+  </h1>
 
-  <script src="js/script.js"></script>
+  <p class="subtitle">a small space for our big story</p>
+
+  <a href="story1.html" class="btn">Start Reading</a>
+</div>
+
+<script src="js/script.js"></script>
+
+<!-- Redirect ke countdown sebelum hari H -->
+<script>
+  // ===== SET TARGET DATE =====
+  const targetDate = new Date("March 20, 2026 00:00:00").getTime();
+  const now = new Date().getTime();
+
+  if (now < targetDate) {
+    window.location.href = "countdown.html";
+  }
+</script>
+
 </body>
 </html>

@@ -1,62 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ==========================
-  // SCROLL PROGRESS (SAFE)
-  // ==========================
-  const progressBar = document.querySelector(".progress-bar");
+const progressBar = document.querySelector(".progress-bar");
 
-  if (progressBar) {
-    window.addEventListener("scroll", () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+if(progressBar){
+window.addEventListener("scroll", () => {
+const scrollTop = document.documentElement.scrollTop;
+const scrollHeight =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
 
-      const progress = (scrollTop / scrollHeight) * 100;
-      progressBar.style.width = progress + "%";
-    });
-  }
+const progress = (scrollTop / scrollHeight) * 100;
+progressBar.style.width = progress + "%";
 
-  // ==========================
-  // LOOPING LOVE EMOJI
-  // ==========================
-  const emoji = document.getElementById("love-emoji");
+document.body.style.setProperty(
+"--scrollY",
+window.scrollY * 0.15 + "px"
+);
+});
+}
 
-  if (emoji) {
-    const text = "💖";
+/* Emoji Loop */
 
-    function typeAndErase() {
+const emoji = document.getElementById("love-emoji");
 
-      // Type
-      let i = 0;
-      function type() {
-        if (i < text.length) {
-          emoji.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(type, 200);
-        } else {
-          // Tunggu bentar sebelum erase
-          setTimeout(erase, 1200);
-        }
-      }
+if(emoji){
 
-      // Erase
-      function erase() {
-        let current = emoji.innerHTML;
-        if (current.length > 0) {
-          emoji.innerHTML = current.substring(0, current.length - 1);
-          setTimeout(erase, 150);
-        } else {
-          // Delay sebelum ulang lagi
-          setTimeout(typeAndErase, 800);
-        }
-      }
+const text = "💖";
 
-      type();
-    }
+function loop(){
 
-    // Delay awal biar title muncul dulu
-    setTimeout(typeAndErase, 800);
-  }
+let i = 0;
+
+function type(){
+if(i < text.length){
+emoji.innerHTML += text.charAt(i);
+i++;
+setTimeout(type,200);
+}else{
+setTimeout(erase,1200);
+}
+}
+
+function erase(){
+if(emoji.innerHTML.length > 0){
+emoji.innerHTML = "";
+setTimeout(loop,600);
+}
+}
+
+type();
+}
+
+setTimeout(loop,800);
+}
 
 });
