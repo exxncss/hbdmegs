@@ -21,7 +21,29 @@
 
   <p class="subtitle">a small space for our big story</p>
 
-  <a href="story1.html" class="btn">Start Reading</a>
+  <button class="btn" id="startBtn">Start Reading</button>
+</div>
+
+<!-- Troll Modal -->
+<div class="modal" id="trollModal">
+
+  <div class="modal-box">
+    <p id="questionText">Are you sure?</p>
+
+    <div class="modal-actions" id="modalActions">
+      <button onclick="nextStep()">Yes</button>
+      <button onclick="closeModal()">No</button>
+    </div>
+
+    <div id="mathBox" style="display:none;">
+      <p>1 + 1 = ?</p>
+      <input type="text" id="answerInput" />
+      <button onclick="checkAnswer()">Submit</button>
+      <p id="errorMsg"></p>
+    </div>
+
+  </div>
+
 </div>
 
 <script src="js/script.js"></script>
@@ -29,7 +51,7 @@
 <!-- Redirect ke countdown sebelum hari H -->
 <script>
   // ===== SET TARGET DATE =====
-  const targetDate = new Date("March 20, 2026 00:00:00").getTime();
+  const targetDate = new Date("March 18, 2026 00:00:00").getTime();
   const now = new Date().getTime();
 
   if (now < targetDate) {
